@@ -32,8 +32,8 @@ arduino-cli compile \
 	--output-dir $DIR/build-left
 
 python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
-	$DIR/build-left/build/firmware.ino.hex -c -f 0xADA52840 \
-	-o $DIR/build-left/build/firmware-left.ino.uf2
+	$DIR/build-left/firmware-left.ino.hex -c -f 0xADA52840 \
+	-o $DIR/build-left/firmware-left.ino.uf2
 
 arduino-cli compile \
 	--fqbn community_nrf52:nrf52:pca10056 \
@@ -41,8 +41,8 @@ arduino-cli compile \
 	--output-dir $DIR/build-right
 
 python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
-	$DIR/build-right/build/firmware.ino.hex -c -f 0xADA52840 \
-	-o $DIR/build-right/build/firmware-right.ino.uf2
+	$DIR/build-right/firmware-right.ino.hex -c -f 0xADA52840 \
+	-o $DIR/build-right/firmware-right.ino.uf2
 
 
 

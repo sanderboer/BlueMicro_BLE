@@ -34,31 +34,31 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 
 
 #if KEYBOARD_SIDE == LEFT
-#define KEYMAP( \
-    k00,  k01,  k02, k03, k04,  \
-    k10,  k11,  k12, k13, k14,  \
-    k20,  k21,  k22, k23, k24,  \
-    k30,  k31,  k32, k33, k34  \
-) 
-{ \
-    { k00,  k01,  k02,    k03, k04 }  \
-    { k10,  k11,  k12,    k13, k14 }, \
-    { k20,  k21,  k22,    k23, k24 }, \
-    {KC_NO, KC_NO, KC_NO, k33, k34 }  \
-} 
+#define KEYMAP(                                 \
+    k00,  k01,  k02, k03, k04,                  \
+    k10,  k11,  k12, k13, k14,                  \
+    k20,  k21,  k22, k23, k24,                  \
+    k30,  k31,  k32, k33, k34                   \
+                )                               \
+  {                                             \
+    { k00,  k01,  k02,    k03, k04 },           \
+    { k10,  k11,  k12,    k13, k14 },           \
+    { k20,  k21,  k22,    k23, k24 },           \
+    {KC_NO, KC_NO, KC_NO, k33, k34 }            \
+  } 
 #else
-#define KEYMAP( \
-      k00,  k01,  k02, k03, k04, \
-      k10,  k11,  k12, k13, k14, \
-      k20,  k21,  k22, k23, k24, \
-      k30,  k31,  k32, k33, k34  \
-) 
-{\
-   {k00, k01, k02, k03, k04  }, \
-   {k10, k11, k12, k13, k14  }, \
-   {k20, k21, k22, k23, k24  }, \
-   {k30, k31, KC_NO, KC_NO, KC_NO } \
-}
+#define KEYMAP(                                 \
+    k00,  k01,  k02, k03, k04,                  \
+    k10,  k11,  k12, k13, k14,                  \
+    k20,  k21,  k22, k23, k24,                  \
+    k30,  k31,  k32, k33, k34                   \
+                )                               \
+  {                                             \
+    {k00, k01, k02, k03, k04  },                \
+    {k10, k11, k12, k13, k14  },                \
+    {k20, k21, k22, k23, k24  },                \
+    {k30, k31, KC_NO, KC_NO, KC_NO }            \
+  }
 
 
 #endif
