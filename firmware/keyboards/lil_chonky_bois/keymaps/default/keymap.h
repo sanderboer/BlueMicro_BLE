@@ -32,17 +32,19 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 // Layers Definitions
 
 #define _COLEMAK 0
-#define _LOWER 1
-#define _RAISE 2
-#define _ADJUST 3
+#define _SYM 1
+#define _NAV 2
+#define _NUM 3
+#define _MISC 4
 
 
 // Layers keycodes Definitions
 
 #define L_COLEMAK   (LAYER_0 + _COLEMAK)
-#define L_LOWER    (LAYER_0 + _LOWER)
-#define L_RAISE    (LAYER_0 + _RAISE)
-#define L_ADJUST   (LAYER_0 + _ADJUST)
+#define L_SYM    (LAYER_0 + _SYM)
+#define L_NAV    (LAYER_0 + _NAV)
+#define L_NUM    (LAYER_0 + _NUM)
+#define L_MISC   (LAYER_0 + _MISC)
 
 
 

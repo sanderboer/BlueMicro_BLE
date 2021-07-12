@@ -40,10 +40,10 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
     k30,  k31,  k32, k33, k34  \
 ) \
 { \
-  { k00,  k01,  k02,    k03, k04 },   \
-  { k10,  k11,  k12,    k13, k14 },   \
-  { k20,  k21,  k22,    k23, k24 },   \
-  {KC_NO, KC_NO, KC_NO, k33, k34 }    \
+  { k00,  k01,  k02, k03, k04 },   \
+  { k10,  k11,  k12, k13, k14 },   \
+  { k20,  k21,  k22, k23, k24 },   \
+  { k30,  k31,  k32, k33, k34 }    \
 } 
 #else
 #define KEYMAP( \
@@ -56,7 +56,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
    {k00, k01, k02, k03, k04  }, \
    {k10, k11, k12, k13, k14  }, \
    {k20, k21, k22, k23, k24  }, \
-   {k30, k31, KC_NO, KC_NO, KC_NO } \
+   {k30, k31, k32, k33, k34 } \
 }
 #endif
 
