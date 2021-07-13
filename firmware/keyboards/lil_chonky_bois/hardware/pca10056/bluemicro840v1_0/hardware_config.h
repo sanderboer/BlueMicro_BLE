@@ -26,8 +26,8 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 5
 
-#define MATRIX_ROW_PINS {29, 2, 45, 3 } // { F6, F7, B1, B3 }
-#define MATRIX_COL_PINS {20, 13, 24, 9, 10 } // { D4, C6, D7, E6, B4 }
+#define MATRIX_ROW_PINS {12, 4, 41, 8 } // { F6, F7, B1, B3 }
+#define MATRIX_COL_PINS {24, 22, 13, 15, 17} // { D4, C6, D7, E6, B4 }
 #define UNUSED_PINS {}
 
 /* COL2ROW or ROW2COL */
@@ -42,9 +42,9 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 
 #define BATTERY_TYPE BATT_LIPO
 #define VBAT_PIN  31
-#define STATUS_BLE_LED_PIN  19  //blue = 0.19
-#define STATUS_KB_LED_PIN 17  //red = 0.17
-#define VCC_PIN 12
+#define STATUS_BLE_LED_PIN  42  //blue = 0.19
+#define STATUS_KB_LED_PIN 36  //red = 0.17
+#define VCC_PIN 32
 #define VCC_POLARITY_ON 1
     
 #endif /* HARDWARE_CONFIG_H */

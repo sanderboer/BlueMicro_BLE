@@ -15,13 +15,13 @@ cp -r $DIR/firmware $RIGHT
 pushd $LEFT
 mv firmware.ino firmware-left.ino
 cp $KB/config/left/keyboard_config.h .
-cp $KB/hardware/pca10056/bluemicro840v1_0/hardware_config.h .
+cp $KB/hardware/pca10056/bluemacro840v1_0/hardware_config.h .
 cp $KB/keymaps/default/keymap.* .
 popd
 pushd $RIGHT
 mv firmware.ino firmware-right.ino
 cp $KB/config/right/keyboard_config.h .
-cp $KB/hardware/pca10056/bluemicro840v1_0/hardware_config.h .
+cp $KB/hardware/pca10056/bluemacro840v1_0/hardware_config.h .
 cp $KB/keymaps/default/keymap.* .
 popd
 
