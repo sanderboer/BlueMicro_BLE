@@ -1,6 +1,7 @@
 
 build-left
 build-right
+build-single
 chonkybois_build
 
 .vscode/*
