@@ -36,6 +36,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #define _NAV 2
 #define _NUM 3
 #define _MISC 4
+#define _HOLD 5
 
 
 // Layers keycodes Definitions
