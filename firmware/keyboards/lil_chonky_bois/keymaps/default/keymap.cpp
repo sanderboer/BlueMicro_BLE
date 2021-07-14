@@ -59,7 +59,7 @@ void setupKeymap() {
           KC_Q,    KC_W,    KC_F,    KC_P,    KC_B, 
           KC_A,    KC_R,    KC_S,    KC_T,    KC_G,
           KC_Z,    KC_NO,   KC_NO,   KC_NO,   KC_NO,
-          KC_NO,   KC_NO,   KC_NO,   KC_SPC,  KC_BSPC
+          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
              );
  
   uint32_t sym[MATRIX_ROWS][MATRIX_COLS] =
@@ -67,14 +67,14 @@ void setupKeymap() {
           KC_GT,   KC_RCBR, KC_RBRC, KC_RPRN, KC_BSLASH,
           KC_LT,   KC_LCBR, KC_LBRC, KC_LPRN, KC_SLASH,
           KC_HASH, KC_DLR,  KC_QUES, KC_EXLM, KC_PIPE,
-          KC_NO,   KC_NO,   KC_NO,   KC_UNDS, KC_QUOT
+          KC_NO,   KC_NO,   KC_NO,   KC_QUOT, KC_UNDS
                                                           );
      
   uint32_t nav[MATRIX_ROWS][MATRIX_COLS] =
       KEYMAP(
           KC_PGUP,   KC_NO,   KC_UP,   KC_NO,    LCTL(KC_GRAVE),
           KC_PGDOWN, KC_LEFT, KC_DOWN, KC_RIGHT, LGUI(KC_GRAVE),
-          KC_APP,    KC_HOME, KC_SPC,  KC_END,   LALT(KC_GRAVE),
+          KC_APP,    KC_HOME, KC_SPC,  KC_END,   LALT(LCTL(KC_GRAVE)),
           KC_NO,     KC_NO,   KC_NO,   KC_LCTL,  KC_LGUI
                                                          );
  
