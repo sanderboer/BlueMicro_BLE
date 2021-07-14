@@ -1,61 +1,65 @@
 #!/bin/bash
 DIR="$( cd -P "$( dirname "$0" )" && pwd )"
-LEFT=$DIR/chonkybois_build_micro/firmware-left
-RIGHT=$DIR/chonkybois_build_micro/firmware-right
-SINGLE=$DIR/chonkybois_build_micro/firmware-single
+
+PREFIX=$DIR/chonkybois_build
+OUTPUT=$PREFIX/build
+SINGLE=$PREFIX/firmware-single
+LEFT=$PREFIX/firmware-left
+RIGHT=$PREFIX/firmware-right
 KB=keyboards/lil_chonky_bois
+KEYMAP=default
 
 BSP_PATH=.arduino15/packages/adafruit/hardware/nrf52
 BSP_VERSION=0.24.0
-rm -rf $DIR/chonkybois_build_micro
-mkdir -p $DIR/chonkybois_build_micro
+rm -rf $PREFIX
+mkdir -p $PREFIX
 
+cp -r $DIR/firmware $SINGLE
 cp -r $DIR/firmware $LEFT
 cp -r $DIR/firmware $RIGHT
-cp -r $DIR/firmware $SINGLE
 
 pushd $LEFT
 mv firmware.ino firmware-left.ino
 cp $KB/config/left/keyboard_config.h .
 cp $KB/hardware/pca10056/bluemicro840v1_0/hardware_config.h .
-cp $KB/keymaps/default/keymap.* .
+cp $KB/keymaps/$KEYMAP/keymap.* .
 popd
 pushd $RIGHT
 mv firmware.ino firmware-right.ino
 cp $KB/config/right/keyboard_config.h .
 cp $KB/hardware/pca10056/bluemicro840v1_0/hardware_config.h .
-cp $KB/keymaps/default/keymap.* .
+cp $KB/keymaps/$KEYMAP/keymap.* .
 popd
 pushd $SINGLE
 mv firmware.ino firmware-single.ino
 cp $KB/config/single/keyboard_config.h .
 cp $KB/hardware/pca10056/bluemicro840v1_0/hardware_config.h .
-cp $KB/keymaps/default/keymap.* .
+cp $KB/keymaps/$KEYMAP/keymap.* .
 popd
 
 arduino-cli compile \
 	--fqbn community_nrf52:nrf52:pca10056 \
 	$LEFT \
-	--output-dir $DIR/build-left-micro
+	--output-dir $OUTPUT-left-micro
 python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
-	$DIR/build-left-micro/firmware-left.ino.hex -c -f 0xADA52840 \
-	-o $DIR/build-left-micro/firmware-left.ino.uf2
+	$OUTPUT-left-micro/firmware-left.ino.hex -c -f 0xADA52840 \
+	-o $OUTPUT-left-micro/firmware-left.ino.uf2
 
 arduino-cli compile \
 	--fqbn community_nrf52:nrf52:pca10056 \
 	$RIGHT \
-	--output-dir $DIR/build-right-micro
+	--output-dir $OUTPUT-right-micro
 python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
-	$DIR/build-right-micro/firmware-right.ino.hex -c -f 0xADA52840 \
-	-o $DIR/build-right-micro/firmware-right.ino.uf2
+	$OUTPUT-right-micro/firmware-right.ino.hex -c -f 0xADA52840 \
+	-o $OUTPUT-right-micro/firmware-right.ino.uf2
 
 arduino-cli compile \
 	--fqbn community_nrf52:nrf52:pca10056 \
 	$SINGLE \
-	--output-dir $DIR/build-single-micro
+	--output-dir $OUTPUT-single-micro
 python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
-	$DIR/build-single-micro/firmware-single.ino.hex -c -f 0xADA52840 \
-	-o $DIR/build-single-micro/firmware-single.ino.uf2
+	$OUTPUT-single-micro/firmware-single.ino.hex -c -f 0xADA52840 \
+	-o $OUTPUT-single-micro/firmware-single.ino.uf2
 
 
 
