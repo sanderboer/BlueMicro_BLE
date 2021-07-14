@@ -17,13 +17,13 @@
 */
 #include "keymap.h"
 
-#if KEYBOARD_SIDE == MASTER
+#if KEYBOARD_SIDE == SINGLE
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
 {KEYMAP(                                            \
-    KC_Q,  KC_W,    KC_F,    KC_P,    KC_P,         \
-    KC_A,  KC_S,    KC_R,    KC_T,    KC_G,         \
-    KC_Z,  KC_X,    KC_C,    KC_V,    KC_D,         \
-    KC_NO, KC_NO,   KC_NO,   KC_SPC,  KC_BSPC       \
+    KC_1,  KC_2,    KC_3,    KC_4,    KC_5,         \
+    KC_A,  KC_B,    KC_C,    KC_D,    KC_E,         \
+    KC_F,  KC_G,    KC_H,    KC_I,    KC_J,         \
+    KC_K,  KC_L,    KC_M,    KC_N,    KC_O          \
                                                 )};
 
 void setupKeymap() {
