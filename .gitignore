@@ -3,6 +3,10 @@ build-left
 build-right
 build-single
 chonkybois_build
+build-left-micro/
+build-right-micro/
+build-single-micro/
+chonkybois_build_micro/
 
 .vscode/*
 .build
