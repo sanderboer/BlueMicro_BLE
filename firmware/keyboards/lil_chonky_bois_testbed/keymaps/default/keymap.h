@@ -30,6 +30,11 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #include <array>
 
 // Layers Definitions
+#define NUM_LAYERS 2
+
+#define _L0 0
+#define _L1 1
+
 
 #define _COLEMAK 0
 #define _SYM 1

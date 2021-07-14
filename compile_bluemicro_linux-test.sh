@@ -11,13 +11,15 @@ BSP_VERSION=0.24.0
 rm -rf $PREFIX
 mkdir -p $PREFIX
 
-cp -r $DIR/firmware $SINGLE
+mkdir $SINGLE
+cp $DIR/firmware/* $SINGLE
 
 pushd $SINGLE
 # mv firmware.ino firmware-single.ino
-cp $KB/config/single/keyboard_config.h .
-cp $KB/hardware/pca10056/bluemicro840v1_0/hardware_config.h .
-cp $KB/keymaps/$KEYMAP/keymap.* .
+cp $DIR/firmware/$KB/config/single/keyboard_config.h .
+cp $DIR/firmware/$KB/hardware/pca10056/bluemicro840v1_0/hardware_config.h .
+cp $DIR/firmware/$KB/keymaps/$KEYMAP/keymap.cpp .
+cp $DIR/firmware/$KB/keymaps/$KEYMAP/keymap.h .
 popd
 
 arduino-cli compile \

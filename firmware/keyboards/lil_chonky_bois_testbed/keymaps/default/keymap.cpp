@@ -18,18 +18,93 @@
 #include "keymap.h"
 
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
-{KEYMAP(                                            \
-    KC_1,  KC_2,    KC_3,    KC_4,    KC_5,         \
-    KC_A,  KC_B,    KC_C,    KC_D,    KC_E,         \
-    KC_F,  KC_G,    KC_H,    KC_I,    KC_J,         \
-    KC_K,  KC_L,    KC_M,    KC_N,    KC_O          \
+{KEYMAP(                                   
+    KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO 
                                                 )};
 
+// std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
+// {KEYMAP(
+//     KC_J,    KC_L,    KC_U,    KC_Y,     KC_ENTER, 
+//     KC_M,    KC_N,    KC_E,    KC_I,     KC_O, 
+//     KC_K,    KC_H,    KC_DOT,  KC_COMMA, KC_SLASH,
+//     KC_BSPC, KC_SPC,  KC_NO,   KC_NO,    KC_NO
+//         )};
+
+
 void setupKeymap() {
-  // no layers for master keymap
-  // this is a keymap that's used for testing that each key is responding properly to key presses
-  // flash this keymap to both left and right to test whether each half works properly.
-  // once tested, you can flash the left and right to their respective halves.
+   uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
+      KEYMAP(
+          KC_J,    KC_L,    KC_U,    KC_Y,     KC_ENTER, 
+          KC_M,    KC_N,    KC_E,    KC_I,     KC_O, 
+          KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO,
+          KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO
+             );
+
+  uint32_t sym[MATRIX_ROWS][MATRIX_COLS] =
+      KEYMAP( 
+          KC_TILD, KC_CIRC, KC_MINS,  KC_PLUS, KC_AT,
+          KC_PERC, KC_ASTR, KC_COLN, KC_SCLN, KC_DQT,
+          KC_EQL,  KC_AMPR, KC_DOT,  KC_COMM, KC_QUOT,
+          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
+              );
+  uint32_t nav[MATRIX_ROWS][MATRIX_COLS] =
+      KEYMAP(
+          KC_KP_MINUS, KC_P7, KC_P8,  KC_P9, KC_EQL,
+          KC_KP_PLUS,  KC_P4, KC_P5,  KC_P6, KC_PDOT,
+          KC_P0,   KC_P1, KC_P2,  KC_P3, RESET,
+          KC_NO,   KC_NO, KC_NO,  KC_NO, KC_NO
+                                                                );
+  uint32_t num[MATRIX_ROWS][MATRIX_COLS] =
+      KEYMAP(
+          KC_F1,  KC_F2,   KC_F3, KC_F4,   KC_F5,
+          KC_F6,  KC_F7,   KC_F8, KC_F9,   KC_F10,
+          RESET,  KC_PSCR, KC_NO, KC_F11,  KC_F12,
+          KC_TRNS,KC_TRNS, KC_TRNS, KC_NO, KC_NO
+                                                            );
+  uint32_t misc[MATRIX_ROWS][MATRIX_COLS] =
+      KEYMAP(
+          LGUI(KC_0), RGB_TOG, RGB_MOD,  RGB_VAI, RGB_M_B,
+          KC_NLCK,    RGB_SAI, KC_NO,    KC_NO, KC_NO,
+          RGB_HUI,    KC_NO,   KC_NO,    KC_NO,   KC_NO,
+          KC_NO,      KC_NO,   KC_NO,    KC_NO,   KC_NO
+                                                                        );
+
+   uint32_t tap[MATRIX_ROWS][MATRIX_COLS] =
+      KEYMAP(
+          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          KC_K,       KC_H,      KC_DOT,    KC_COMMA,  KC_SLASH,
+          KC_BSPC,    KC_SPC,    KC_TRNS,   KC_TRNS,   KC_TRNS
+                                                             );
+
+ uint32_t hold[MATRIX_ROWS][MATRIX_COLS] =
+      KEYMAP(
+          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          KC_LGUI,    KC_LALT,   KC_LSFT,   KC_LCTL,   KC_TRNS,
+          L_SYM,      L_NAV,   KC_TRNS,   KC_TRNS,   KC_TRNS
+                                                             );
+
+
+          /*
+           * add the other layers
+           */
+          for (int row = 0; row < MATRIX_ROWS; ++row)
+          {
+            for (int col = 0; col < MATRIX_COLS; ++col)
+            {
+              matrix[row][col].addActivation(_COLEMAK, Method::PRESS, colemak[row][col]);
+              matrix[row][col].addActivation(_SYM, Method::PRESS, sym[row][col]);
+              matrix[row][col].addActivation(_NAV, Method::PRESS, nav[row][col]);
+              matrix[row][col].addActivation(_NUM, Method::PRESS, num[row][col]);
+              matrix[row][col].addActivation(_MISC, Method::PRESS, misc[row][col]);
+              matrix[row][col].addActivation(_COLEMAK, Method::MT_HOLD, hold[row][col]);
+              matrix[row][col].addActivation(_COLEMAK, Method::MT_TAP, tap[row][col]);
+            }
+          }
 }
 
 void process_user_macros(uint16_t macroid)
