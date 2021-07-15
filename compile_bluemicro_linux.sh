@@ -56,13 +56,13 @@ python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
 	$OUTPUT-right-micro/firmware-right.ino.hex -c -f 0xADA52840 \
 	-o $OUTPUT-right-micro/firmware-right.ino.uf2
 
-# arduino-cli compile \
-# 	--fqbn community_nrf52:nrf52:pca10056 \
-# 	$SINGLE \
-# 	--output-dir $OUTPUT-single-micro
-# python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
-# 	$OUTPUT-single-micro/firmware-single.ino.hex -c -f 0xADA52840 \
-# 	-o $OUTPUT-single-micro/firmware-single.ino.uf2
+arduino-cli compile \
+	--fqbn community_nrf52:nrf52:pca10056 \
+	$SINGLE \
+	--output-dir $OUTPUT-single-micro
+python3 $HOME/$BSP_PATH/$BSP_VERSION/tools/uf2conv/uf2conv.py \
+	$OUTPUT-single-micro/firmware-single.ino.hex -c -f 0xADA52840 \
+	-o $OUTPUT-single-micro/firmware-single.ino.uf2
 
 
 

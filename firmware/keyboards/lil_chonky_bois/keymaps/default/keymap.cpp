@@ -46,7 +46,7 @@ void process_user_layers(uint16_t layermask)
 #if KEYBOARD_SIDE == LEFT
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
 {KEYMAP(
-    KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+   KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
     KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
     KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
     KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO 
@@ -56,10 +56,14 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
 void setupKeymap() {
   uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
       KEYMAP(
-          KC_Q,    KC_W,    KC_F,    KC_P,    KC_B, 
-          KC_A,    KC_R,    KC_S,    KC_T,    KC_G,
-          KC_Z,    KC_NO,   KC_NO,   KC_NO,   KC_NO,
-          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
+           KC_Q,    KC_W,    KC_F,    KC_P,    KC_B, 
+          KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+          KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+          KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO 
+          // KC_Q,    KC_W,    KC_F,    KC_P,    KC_B, 
+          // KC_A,    KC_R,    KC_S,    KC_T,    KC_G,
+          // KC_Z,    KC_NO,   KC_NO,   KC_NO,   KC_NO,
+          // KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
              );
  
   uint32_t sym[MATRIX_ROWS][MATRIX_COLS] =
@@ -95,17 +99,19 @@ void setupKeymap() {
  
    uint32_t tap[MATRIX_ROWS][MATRIX_COLS] =
       KEYMAP(
-          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-          KC_TRNS,    KC_X,      KC_C,      KC_D,      KC_V,
+          // KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          // KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          KC_Q,    KC_W,    KC_F,    KC_P,    KC_B, 
+          KC_A,    KC_R,    KC_S,    KC_T,    KC_G,
+          KC_Z,    KC_X,      KC_C,      KC_D,      KC_V,
           KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_SPC,   KC_BSPC
                                                              );
 
    uint32_t hold[MATRIX_ROWS][MATRIX_COLS] =
        KEYMAP(
-           KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-           KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-           KC_TRNS,    KC_LCTL,   KC_LSFT,   KC_LALT,   KC_LGUI,
+           KC_Q,    KC_W,    KC_F,    KC_P,    KC_B, 
+           KC_A,    KC_R,    KC_S,    KC_T,    KC_G,
+           KC_Z,    KC_LCTL,   KC_LSFT,   KC_LALT,   KC_LGUI,
            KC_TRNS,    KC_TRNS,   KC_TRNS,   L_NUM,     L_MISC
               );
 
@@ -167,9 +173,12 @@ void setupKeymap() {
    uint32_t colemak[MATRIX_ROWS][MATRIX_COLS] =
       KEYMAP(
           KC_J,    KC_L,    KC_U,    KC_Y,     KC_ENTER, 
-          KC_M,    KC_N,    KC_E,    KC_I,     KC_O, 
-          KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO,
-          KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO
+          KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+          KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,
+          KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO 
+          // KC_M,    KC_N,    KC_E,    KC_I,     KC_O, 
+          // KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO,
+          // KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO
              );
 
   uint32_t sym[MATRIX_ROWS][MATRIX_COLS] =
@@ -204,17 +213,22 @@ void setupKeymap() {
 
    uint32_t tap[MATRIX_ROWS][MATRIX_COLS] =
       KEYMAP(
-          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-          KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          // KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO,
+          //KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          //KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+          KC_NO,    KC_NO,    KC_NO,   KC_NO,     KC_NO, 
+          KC_M,    KC_N,    KC_E,    KC_I,     KC_O, 
           KC_K,       KC_H,      KC_DOT,    KC_COMMA,  KC_SLASH,
           KC_BSPC,    KC_SPC,    KC_TRNS,   KC_TRNS,   KC_TRNS
                                                              );
 
    uint32_t hold[MATRIX_ROWS][MATRIX_COLS] =
        KEYMAP(
-           KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-           KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-           KC_LGUI,    KC_LALT,   KC_LSFT,   KC_LCTL,   KC_TRNS,
+           //KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+           //KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+           KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO, 
+           KC_M,    KC_N,    KC_E,    KC_I,     KC_O, 
+           KC_LGUI,    KC_LALT,   KC_LSFT,   KC_LCTL,   KC_SLASH,
            L_SYM,      L_NAV,   KC_TRNS,   KC_TRNS,   KC_TRNS
               );
 
